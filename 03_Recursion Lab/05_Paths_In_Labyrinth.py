@@ -33,4 +33,4 @@ def find_all_paths(row, col, lab, direction, path):
     path.pop()
 
 
-find_all_paths(0, 0, lab, "",  [])
+find_all_paths(0, 0, lab, "", [])
