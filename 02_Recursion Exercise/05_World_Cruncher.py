@@ -1,3 +1,24 @@
+def find_all_solutions(index, t, w_by_idx, w_counts, used_words):
+    if index >= len(t):
+        print(" ".join(used_words))
+        return
+
+    if index not in w_by_idx:
+        return
+
+    for w in w_by_idx[index]:
+        if w_counts[w] == 0:
+            continue
+
+        used_words.append(w)
+        w_counts[w] -= 1
+
+        find_all_solutions(index + len(w), t, w_by_idx, w_counts, used_words)
+
+        used_words.pop()
+        w_counts[w] += 1
+
+
 words = input().split(", ")
 target = input()
 
@@ -7,8 +28,9 @@ words_counts = {}
 for word in words:
     if word in words_counts:
         words_counts[word] += 1
-    else:
-        words_counts[word] = 1
+        continue
+
+    words_counts[word] = 1
 
     try:
         idx = 0
@@ -22,19 +44,4 @@ for word in words:
     except ValueError:
         pass
 
-
-def find_all_solutions(index, w_by_idx, w_counts, used_words):
-    if index not in w_by_idx:
-        return
-
-    for w in w_by_idx[index]:
-        used_words.add(w)
-        w_counts[w] -= 1
-
-        find_all_solutions(index + len(w), w_by_idx, w_counts, used_words)
-
-        used_words.pop(w)
-        w_counts[w] += 1
-
-
-find_all_solutions(0, words_by_idx, words_counts, [])
+find_all_solutions(0, target, words_by_idx, words_counts, [])
