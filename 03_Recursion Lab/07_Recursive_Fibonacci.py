@@ -1,3 +1,6 @@
+number = int(input())
+
+
 def calc_fib(number):
     if number <= 1:
         return 1
@@ -15,5 +18,5 @@ def iterative_fib(number):
     return result
 
 
-print(calc_fib(10))
-print(iterative_fib(10))
+print(calc_fib(number))
+print(iterative_fib(number))
