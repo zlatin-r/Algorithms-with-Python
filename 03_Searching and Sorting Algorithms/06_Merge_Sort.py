@@ -35,4 +35,4 @@ def merge_sort(nums):
 
 numbers = [int(x) for x in input().split()]
 res = merge_sort(numbers)
-print(*res, sep="")
+print(*res, sep=" ")
