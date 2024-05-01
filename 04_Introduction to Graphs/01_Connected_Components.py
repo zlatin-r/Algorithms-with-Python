@@ -1,3 +1,15 @@
+def dfs(node, graph, visited):
+    if node in visited:
+        return
+
+    visited.add(node)
+
+    for child in graph[node]:
+        dfs(child, graph, visited)
+
+    print(node, end=" ")
+
+
 graph = {
     1: [19, 21, 14],
     19: [7, 12, 31, 21],
@@ -11,17 +23,6 @@ graph = {
 }
 
 visited = set()
-
-
-def dfs(node, graph, visited):
-    if node in visited:
-        return
-
-    visited.add(node)
-
-    for child in graph[node]:
-        dfs(child, graph, visited)
-
 
 for node in graph:
     dfs(node, graph, visited)
