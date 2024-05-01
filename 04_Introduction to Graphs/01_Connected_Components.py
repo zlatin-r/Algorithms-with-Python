@@ -10,3 +10,18 @@ graph = {
     6: []
 }
 
+visited = set()
+
+
+def dfs(node, graph, visited):
+    if node in visited:
+        return
+
+    visited.add(node)
+
+    for child in graph[node]:
+        dfs(child, graph, visited)
+
+
+for node in graph:
+    dfs(node, graph, visited)
