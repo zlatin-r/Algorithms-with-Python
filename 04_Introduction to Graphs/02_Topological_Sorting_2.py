@@ -3,7 +3,7 @@ from collections import deque
 
 def dfs(node, graph, visited, cycles, sorted_nodes):
     if node in cycles:
-        raise Exception
+        raise Exception("Cycles has been detected. Invalid topological sorting!")
     if node in visited:
         return
 
