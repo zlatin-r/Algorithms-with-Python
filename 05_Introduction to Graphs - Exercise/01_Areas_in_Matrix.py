@@ -23,6 +23,7 @@ for _ in range(rows):
     visited.append([False] * cols)
 
 areas = {}
+total_areas = 0
 
 for row in range(rows):
     for col in range(cols):
@@ -37,5 +38,7 @@ for row in range(rows):
         else:
             areas[key] += 1
 
-print(f"Areas: {sum(areas.values())}")
+        total_areas += 1
+
+print(f"Areas: {total_areas}")
 print('\n'.join(f"Letter '{k}' -> {v}" for k, v in sorted(areas.items())))
